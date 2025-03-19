@@ -333,7 +333,7 @@
             `<ul>${debuffs.map(d => `<li>${d}</li>`).join('')}</ul>` :
             '<p>No debuffs selected</p>'}
             `;
-        $(`.stats-${category.replace(/ & /g, '-')}`).html(statsHtml);
+        $(`.stats-${category.replace(/ & /g, '-').replace(/ /g, '-')}`).html(statsHtml);
 
         [1, 2, 3].forEach(tier => {
             const required = skillPointsPerTier[category][tier];
