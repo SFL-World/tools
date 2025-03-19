@@ -91,6 +91,10 @@
         .tier-locked .skill-item:not(.selected) {
             cursor: not-allowed;
         }
+        .loading-spinner {
+            display: none;
+            margin-left: 10px;
+        }
         @media (max-width: 768px) {
             .stats-section {
                 margin-top: 10px;
@@ -114,7 +118,14 @@
                     <span class="input-group-text">Farm ID:</span>
                     <input type="number" id="farmId" class="form-control" placeholder="Enter Farm ID" min="1">
                 </div>
-                <button id="loadFarmBtn" class="btn btn-primary w-100 mb-2" disabled>Load Farm Data</button>
+                <div class="d-flex align-items-center">
+                    <button id="loadFarmBtn" class="btn btn-primary w-100 mb-2" disabled>Load Farm Data</button>
+                    <div id="loadingSpinner" class="loading-spinner">
+                        <div class="spinner-border spinner-border-sm text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="input-group">
                     <span class="input-group-text">Available Points:</span>
                     <input type="number" id="availablePoints" class="form-control" value="100" min="0">
@@ -305,7 +316,7 @@
             }
         });
 
-        updateAllTiers(); // We always update the availability of tiers
+        updateAllTiers();
     }
 
     function updateStats(category) {
@@ -373,6 +384,9 @@
     }
 
     function loadFarmData(farmId) {
+        $('#loadFarmBtn').prop('disabled', true); // Отключаем кнопку
+        $('#loadingSpinner').show(); // Показываем спиннер
+
         $.get(`/api/v1.1/land/${farmId}`).then(data => {
             // Installing available points from bumpkin.level
             availablePoints = data.bumpkin.level;
@@ -397,6 +411,9 @@
         }).catch(error => {
             console.error('Error loading farm data:', error);
             alert('Failed to load farm data. Please check the console for details.');
+        }).always(() => {
+            $('#loadFarmBtn').prop('disabled', false); // Включаем кнопку обратно
+            $('#loadingSpinner').hide(); // Скрываем спиннер
         });
     }
 
