@@ -5,3 +5,5 @@ Anyone can create or edit any tool, and I can provide you with an API to get any
 
 # skills
 Skill tree calculator (AI generated)
+
+https://sfl.world/tools/skills/
