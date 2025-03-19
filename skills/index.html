@@ -110,6 +110,11 @@
     <div class="points-display mb-3">
         <div class="row">
             <div class="col-md-3 align-self-start">
+                <div class="input-group mb-2">
+                    <span class="input-group-text">Farm ID:</span>
+                    <input type="number" id="farmId" class="form-control" placeholder="Enter Farm ID" min="1">
+                </div>
+                <button id="loadFarmBtn" class="btn btn-primary w-100 mb-2" disabled>Load Farm Data</button>
                 <div class="input-group">
                     <span class="input-group-text">Available Points:</span>
                     <input type="number" id="availablePoints" class="form-control" value="100" min="0">
@@ -231,7 +236,7 @@
         updatePointsDisplay();
         updateAllTiers();
 
-        // Инициализация Bootstrap tooltips
+        // Initializing Bootstrap tooltips
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     }
@@ -242,7 +247,7 @@
         const remaining = availablePoints - totalSpent;
         $('#remainingPoints').text(`Remaining Points: ${remaining}`);
 
-        // Обновление списка выбранных навыков
+        // Updating the list of selected skills
         const allSkills = Object.entries(selectedSkills)
             .filter(([_, skills]) => skills.length > 0)
             .map(([category, skills]) => {
@@ -254,7 +259,7 @@
             `<ul>${allSkills.map(s => `<li>${s}</li>`).join('')}</ul>` :
             '<p class="text-muted">None</p>');
 
-        // Обновление списков бафов и дебафов
+        // Updated lists of buffs and debuffs
         const allBuffs = [];
         const allDebuffs = [];
         Object.values(selectedSkills).flat().forEach(skill => {
@@ -274,7 +279,7 @@
             `<ul>${allDebuffs.map(d => `<li>${d}</li>`).join('')}</ul>` :
             '<p class="text-muted">None</p>');
 
-        // Обновление подсказок и подсветки недоступных навыков
+        // Updated tooltips and highlighting of unavailable skills
         $('.skill-item').each(function() {
             const $skill = $(this);
             const category = $skill.data('category');
@@ -284,10 +289,10 @@
                 sum + parseInt($(skill).data('points')), 0);
             const requiredForTier = skillPointsPerTier[category][tier];
 
-            if ($skill.hasClass('disabled')) {
+            if ($skill.hasClass('disabled') && !$skill.hasClass('selected')) {
                 let tooltipText = '';
-                if (remaining <= 0) {
-                    tooltipText = 'No remaining points available';
+                if (remaining < points) {
+                    tooltipText = 'Not enough remaining points';
                 } else if (spentInCategory < requiredForTier) {
                     tooltipText = `Need ${requiredForTier - spentInCategory} more points in ${category} to unlock this tier`;
                 }
@@ -297,11 +302,7 @@
             }
         });
 
-        if (remaining <= 0) {
-            $('.skill-item:not(.selected):not(.disabled)').addClass('disabled');
-        } else {
-            updateAllTiers();
-        }
+        updateAllTiers(); // We always update the availability of tiers
     }
 
     function updateStats(category) {
@@ -352,13 +353,11 @@
         [2, 3].forEach(tier => {
             const required = skillPointsPerTier[category][tier];
             const $tierSection = $(`.category-panel[data-category="${category}"] .tier-${tier}`);
-            const $tierSkills = $tierSection.find('.skill-item');
+            const $tierSkills = $tierSection.find('.skill-item:not(.selected)');
 
             if (spentPoints < required) {
                 $tierSection.addClass('tier-locked');
-                $tierSkills.addClass('disabled').removeClass('selected');
-                selectedSkills[category] = selectedSkills[category].filter(s =>
-                    $(s).data('tier') < tier);
+                $tierSkills.addClass('disabled');
             } else {
                 $tierSection.removeClass('tier-locked');
                 $tierSkills.removeClass('disabled');
@@ -370,6 +369,34 @@
         Object.keys(skillPointsPerTier).forEach(category => {
             updateTierAccess(category);
             updateStats(category);
+        });
+    }
+
+    function loadFarmData(farmId) {
+        $.get(`/api/v1.1/land/${farmId}`).then(data => {
+            // Installing available points from bumpkin.level
+            availablePoints = data.bumpkin.level;
+            $('#availablePoints').val(availablePoints);
+
+            // Reset currently selected skills
+            $('.skill-item').removeClass('selected');
+            Object.keys(selectedSkills).forEach(category => selectedSkills[category] = []);
+
+            // Automatically select skills from bumpkin.skills
+            const farmSkills = data.bumpkin.skills;
+            Object.keys(farmSkills).forEach(skillName => {
+                const $skill = $(`.skill-item[data-name="${skillName}"]`);
+                if ($skill.length) {
+                    $skill.addClass('selected');
+                    const category = $skill.data('category');
+                    selectedSkills[category].push($skill[0]);
+                }
+            });
+
+            updatePointsDisplay();
+        }).catch(error => {
+            console.error('Error loading farm data:', error);
+            alert('Failed to load farm data. Please check the console for details.');
         });
     }
 
@@ -395,6 +422,18 @@
     $('#availablePoints').on('change', function() {
         availablePoints = parseInt($(this).val()) || 0;
         updatePointsDisplay();
+    });
+
+    $('#farmId').on('input', function() {
+        const farmId = $(this).val();
+        $('#loadFarmBtn').prop('disabled', !farmId || farmId <= 0);
+    });
+
+    $('#loadFarmBtn').on('click', function() {
+        const farmId = $('#farmId').val();
+        if (farmId) {
+            loadFarmData(farmId);
+        }
     });
 
     $(document).ready(function() {
