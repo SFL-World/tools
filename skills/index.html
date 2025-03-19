@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Tree</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .skill-tree-container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .category-panel {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .tier-section {
+            padding: 8px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .tier-section:last-child {
+            border-bottom: none;
+        }
+        .tier-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: flex-start;
+        }
+        .skill-item {
+            width: 140px;
+            padding: 5px;
+            border: 1px solid #dee2e6;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: #fff;
+            position: relative;
+        }
+        .skill-item:hover:not(.disabled) {
+            background-color: #f8f9fa;
+        }
+        .skill-item.selected {
+            background-color: #d4edda;
+            border-color: #28a745;
+        }
+        .skill-item.disabled {
+            cursor: not-allowed;
+            background-color: #f8d7da;
+            border-color: #dc3545;
+        }
+        .skill-name {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        .skill-details {
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        .stats-section {
+            background-color: #f8f9fa;
+            padding: 10px;
+            height: fit-content;
+        }
+        .points-display {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+            padding: 0 10px 10px 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .stats-container {
+            font-size: 10px;
+            margin-top: 5px;
+        }
+        .stats-container ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        .toggle-btn {
+            font-size: 10px;
+            padding: 2px 5px;
+        }
+        .tier-locked {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .tier-locked .skill-item {
+            cursor: not-allowed;
+        }
+        @media (max-width: 768px) {
+            .stats-section {
+                margin-top: 10px;
+            }
+            .skill-item {
+                width: 120px;
+            }
+            .stats-container .col-4 {
+                width: 100%; /* Каждый блок занимает всю ширину */
+                margin-bottom: 5px; /* Отступ между блоками */
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="skill-tree-container">
+    <div class="points-display mb-3">
+        <div class="row">
+            <div class="col-md-3 align-self-start">
+                <div class="input-group">
+                    <span class="input-group-text">Available Points:</span>
+                    <input type="number" id="availablePoints" class="form-control" value="100" min="0">
+                </div>
+                <span id="remainingPoints" class="text-success d-block mt-2"></span>
+            </div>
+            <div class="col-md-9">
+                <div id="statsContainer" class="stats-container">
+                    <div class="row">
+                        <div class="col-4">
+                            <strong>Skills: <span id="skillsCount">0</span></strong>
+                            <button class="btn btn-outline-primary toggle-btn ms-1" data-bs-toggle="collapse" data-bs-target="#selectedSkillsList">Show</button>
+                            <div id="selectedSkillsList" class="collapse"></div>
+                        </div>
+                        <div class="col-4">
+                            <strong>Buffs: <span id="buffsCount">0</span></strong>
+                            <button class="btn btn-outline-success toggle-btn ms-1" data-bs-toggle="collapse" data-bs-target="#headerBuffsList">Show</button>
+                            <div id="headerBuffsList" class="collapse"></div>
+                        </div>
+                        <div class="col-4">
+                            <strong>Debuffs: <span id="debuffsCount">0</span></strong>
+                            <button class="btn btn-outline-danger toggle-btn ms-1" data-bs-toggle="collapse" data-bs-target="#headerDebuffsList">Show</button>
+                            <div id="headerDebuffsList" class="collapse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skillTree"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let skillPointsPerTier = {};
+    let skillsData = {};
+    let availablePoints = 100;
+    let selectedSkills = {};
+
+    const categoryIcons = {
+        "Crops": "bi-flower1",
+        "Trees": "bi-tree",
+        "Fishing": "bi-water",
+        "Mining": "bi-hammer",
+        "Cooking": "bi-egg-fried",
+        "Compost": "bi-recycle",
+        "Fruit Patch": "bi-apple",
+        "Animals": "bi-egg",
+        "Bees & Flowers": "bi-flower2",
+        "Greenhouse": "bi-house",
+        "Machinery": "bi-gear"
+    };
+
+    function loadJSONFiles() {
+        return Promise.all([
+            $.getJSON('data/SKILL_POINTS_PER_TIER.json'),
+            $.getJSON('data/BUMPKIN_REVAMP_SKILL_TREE.json')
+        ]).then(([pointsData, skillData]) => {
+            skillPointsPerTier = pointsData;
+            skillsData = skillData;
+        }).catch(error => {
+            console.error('Error loading JSON files:', error);
+            alert('Failed to load skill data. Please check the console for details.');
+        });
+    }
+
+    function initializeSkillTree() {
+        Object.keys(skillPointsPerTier).forEach(category => {
+            selectedSkills[category] = [];
+            const categoryDiv = $(`
+                    <div class="category-panel" data-category="${category}">
+                        <div class="row">
+                            <div class="col-md-8 col-12">
+                                <h5 class="p-2 bg-light"><i class="${categoryIcons[category]} me-2"></i>${category}</h5>
+                                <div class="tiers-container"></div>
+                            </div>
+                            <div class="col-md-4 col-12 stats-section">
+                                <h6>Stats</h6>
+                                <div class="stats-${category.replace(/ & /g, '-').replace(/ /g, '-')}"></div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+
+            [1, 2, 3].forEach(tier => {
+                const tierSkills = Object.values(skillsData).filter(skill =>
+                    skill.tree === category && skill.requirements.tier === tier
+                );
+
+                const tierDiv = $(`
+                        <div class="tier-section tier-${tier}">
+                            <h6>Tier ${tier} (${tier === 1 ? '0' : '0'}/${skillPointsPerTier[category][tier]})</h6>
+                            <div class="tier-skills"></div>
+                        </div>
+                    `);
+
+                tierSkills.forEach(skill => {
+                    const skillDiv = $(`
+                            <div class="skill-item" data-category="${category}" 
+                                 data-tier="${tier}" data-points="${skill.requirements.points}"
+                                 data-name="${skill.name}" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <div class="skill-name">${skill.name} (${skill.requirements.points} pts)</div>
+                                <div class="skill-details text-success">${skill.boosts.buff.shortDescription}</div>
+                                ${skill.boosts.debuff ?
+                        `<div class="skill-details text-danger">${skill.boosts.debuff.shortDescription}</div>` : ''}
+                            </div>
+                        `);
+                    tierDiv.find('.tier-skills').append(skillDiv);
+                });
+
+                categoryDiv.find('.tiers-container').append(tierDiv);
+            });
+
+            $('#skillTree').append(categoryDiv);
+        });
+
+        updatePointsDisplay();
+        updateAllTiers();
+
+        // Инициализация Bootstrap tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    }
+
+    function updatePointsDisplay() {
+        const totalSpent = Object.values(selectedSkills).flat().reduce((sum, skill) =>
+            sum + parseInt($(skill).data('points')), 0);
+        const remaining = availablePoints - totalSpent;
+        $('#remainingPoints').text(`Remaining Points: ${remaining}`);
+
+        // Обновление списка выбранных навыков
+        const allSkills = Object.entries(selectedSkills)
+            .filter(([_, skills]) => skills.length > 0)
+            .map(([category, skills]) => {
+                return skills.map(s => `<i class="${categoryIcons[category]} me-1"></i>${$(s).data('name')} (${$(s).data('points')} pts)`);
+            })
+            .flat();
+        $('#skillsCount').text(allSkills.length);
+        $('#selectedSkillsList').html(allSkills.length > 0 ?
+            `<ul>${allSkills.map(s => `<li>${s}</li>`).join('')}</ul>` :
+            '<p class="text-muted">None</p>');
+
+        // Обновление списков бафов и дебафов
+        const allBuffs = [];
+        const allDebuffs = [];
+        Object.values(selectedSkills).flat().forEach(skill => {
+            const $skill = $(skill);
+            allBuffs.push($skill.find('.text-success').text());
+            if ($skill.find('.text-danger').length) {
+                allDebuffs.push($skill.find('.text-danger').text());
+            }
+        });
+
+        $('#buffsCount').text(allBuffs.length);
+        $('#debuffsCount').text(allDebuffs.length);
+        $('#headerBuffsList').html(allBuffs.length > 0 ?
+            `<ul>${allBuffs.map(b => `<li>${b}</li>`).join('')}</ul>` :
+            '<p class="text-muted">None</p>');
+        $('#headerDebuffsList').html(allDebuffs.length > 0 ?
+            `<ul>${allDebuffs.map(d => `<li>${d}</li>`).join('')}</ul>` :
+            '<p class="text-muted">None</p>');
+
+        // Обновление подсказок и подсветки недоступных навыков
+        $('.skill-item').each(function() {
+            const $skill = $(this);
+            const category = $skill.data('category');
+            const tier = $skill.data('tier');
+            const points = parseInt($skill.data('points'));
+            const spentInCategory = selectedSkills[category].reduce((sum, skill) =>
+                sum + parseInt($(skill).data('points')), 0);
+            const requiredForTier = skillPointsPerTier[category][tier];
+
+            if ($skill.hasClass('disabled')) {
+                let tooltipText = '';
+                if (remaining <= 0) {
+                    tooltipText = 'No remaining points available';
+                } else if (spentInCategory < requiredForTier) {
+                    tooltipText = `Need ${requiredForTier - spentInCategory} more points in ${category} to unlock this tier`;
+                }
+                $skill.attr('data-bs-title', tooltipText);
+            } else {
+                $skill.attr('data-bs-title', '');
+            }
+        });
+
+        if (remaining <= 0) {
+            $('.skill-item:not(.selected):not(.disabled)').addClass('disabled');
+        } else {
+            updateAllTiers();
+        }
+    }
+
+    function updateStats(category) {
+        const spentPoints = selectedSkills[category].reduce((sum, skill) =>
+            sum + parseInt($(skill).data('points')), 0);
+        const tierPoints = {1: 0, 2: 0, 3: 0};
+        const buffs = [];
+        const debuffs = [];
+
+        selectedSkills[category].forEach(skill => {
+            const $skill = $(skill);
+            const tier = $skill.data('tier');
+            tierPoints[tier] += parseInt($skill.data('points'));
+            buffs.push($skill.find('.text-success').text());
+            if ($skill.find('.text-danger').length) {
+                debuffs.push($skill.find('.text-danger').text());
+            }
+        });
+
+        const statsHtml = `
+                Total Points: ${spentPoints}<br>
+                Tier 1: ${tierPoints[1]}<br>
+                Tier 2: ${tierPoints[2]}<br>
+                Tier 3: ${tierPoints[3]}<br>
+                <strong>Buffs:</strong>${buffs.length > 0 ?
+            `<ul>${buffs.map(b => `<li>${b}</li>`).join('')}</ul>` :
+            '<p>No buffs selected</p>'}
+                <strong>Debuffs:</strong>${debuffs.length > 0 ?
+            `<ul>${debuffs.map(d => `<li>${d}</li>`).join('')}</ul>` :
+            '<p>No debuffs selected</p>'}
+            `;
+        $(`.stats-${category.replace(/ & /g, '-')}`).html(statsHtml);
+
+        [1, 2, 3].forEach(tier => {
+            const required = skillPointsPerTier[category][tier];
+            const spent = selectedSkills[category]
+                .filter(s => $(s).data('tier') < tier)
+                .reduce((sum, s) => sum + parseInt($(s).data('points')), 0);
+            $(`.category-panel[data-category="${category}"] .tier-section.tier-${tier} h6`)
+                .text(`Tier ${tier} (${spent}/${required})`);
+        });
+    }
+
+    function updateTierAccess(category) {
+        const spentPoints = selectedSkills[category].reduce((sum, skill) =>
+            sum + parseInt($(skill).data('points')), 0);
+
+        [2, 3].forEach(tier => {
+            const required = skillPointsPerTier[category][tier];
+            const $tierSection = $(`.category-panel[data-category="${category}"] .tier-${tier}`);
+            const $tierSkills = $tierSection.find('.skill-item');
+
+            if (spentPoints < required) {
+                $tierSection.addClass('tier-locked');
+                $tierSkills.addClass('disabled').removeClass('selected');
+                selectedSkills[category] = selectedSkills[category].filter(s =>
+                    $(s).data('tier') < tier);
+            } else {
+                $tierSection.removeClass('tier-locked');
+                $tierSkills.removeClass('disabled');
+            }
+        });
+    }
+
+    function updateAllTiers() {
+        Object.keys(skillPointsPerTier).forEach(category => {
+            updateTierAccess(category);
+            updateStats(category);
+        });
+    }
+
+    $(document).on('click', '.skill-item:not(.disabled)', function() {
+        const $this = $(this);
+        const category = $this.data('category');
+        const points = parseInt($this.data('points'));
+        const totalSpent = Object.values(selectedSkills).flat().reduce((sum, skill) =>
+            sum + parseInt($(skill).data('points')), 0);
+        const remaining = availablePoints - totalSpent;
+
+        if ($this.hasClass('selected')) {
+            $this.removeClass('selected');
+            selectedSkills[category] = selectedSkills[category].filter(s => s !== this);
+        } else if (remaining >= points) {
+            $this.addClass('selected');
+            selectedSkills[category].push(this);
+        }
+
+        updatePointsDisplay();
+    });
+
+    $('#availablePoints').on('change', function() {
+        availablePoints = parseInt($(this).val()) || 0;
+        updatePointsDisplay();
+    });
+
+    $(document).ready(function() {
+        loadJSONFiles().then(() => {
+            initializeSkillTree();
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,2324 @@
+{
+    "Green Thumb": {
+        "name": "Green Thumb",
+        "tree": "Crops",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-5% plot crop growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Young Farmer": {
+        "name": "Young Farmer",
+        "tree": "Crops",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Basic Crop yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Experienced Farmer": {
+        "name": "Experienced Farmer",
+        "tree": "Crops",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Medium Crop yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Old Farmer": {
+        "name": "Old Farmer",
+        "tree": "Crops",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Advanced Crop yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Chonky Scarecrow": {
+        "name": "Chonky Scarecrow",
+        "tree": "Crops",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Increases Basic Scarecrow's area of effect (AOE) to a 7x7 area; Additional -10% basic crop growth time",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Betty's Friend": {
+        "name": "Betty's Friend",
+        "tree": "Crops",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Betty Coin delivery revenue increased by 30%",
+                "labelType": "success"
+            }
+        },
+        "npc": "betty",
+        "disabled": false
+    },
+    "Strong Roots": {
+        "name": "Strong Roots",
+        "tree": "Crops",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Advanced crop growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Coin Swindler": {
+        "name": "Coin Swindler",
+        "tree": "Crops",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10% coins when selling plot crops at the Market",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Golden Sunflower": {
+        "name": "Golden Sunflower",
+        "tree": "Crops",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "1/700 chance for +0.35 gold when harvesting sunflowers (plots only)",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Horror Mike": {
+        "name": "Horror Mike",
+        "tree": "Crops",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Increases Scary Mike's area of effect (AOE) to a 7x7 area; Additional +0.1 medium crop yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Laurie's Gains": {
+        "name": "Laurie's Gains",
+        "tree": "Crops",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Increases Laurie the Chuckle Crow's area of effect (AOE) to a 7x7 area; Additional +0.1 advanced crop yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Instant Growth": {
+        "name": "Instant Growth",
+        "tree": "Crops",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic",
+            "cooldown": 259200000
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Grants the ability to instantly harvest all currently growing crops in plots",
+                "labelType": "transparent"
+            }
+        },
+        "disabled": false,
+        "power": true
+    },
+    "Acre Farm": {
+        "name": "Acre Farm",
+        "tree": "Crops",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Advanced crop yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.5 Basic and Medium crop yield",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Hectare Farm": {
+        "name": "Hectare Farm",
+        "tree": "Crops",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Basic and Medium crop yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.5 Advanced crop yield",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Fruitful Fumble": {
+        "name": "Fruitful Fumble",
+        "tree": "Fruit Patch",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 fruit yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Fruity Heaven": {
+        "name": "Fruity Heaven",
+        "tree": "Fruit Patch",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% fruit seeds cost",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Fruity Profit": {
+        "name": "Fruity Profit",
+        "tree": "Fruit Patch",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+50% coins from Tango's deliveries",
+                "labelType": "success"
+            }
+        },
+        "disabled": false,
+        "npc": "tango"
+    },
+    "Loyal Macaw": {
+        "name": "Loyal Macaw",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Double Macaw's effect",
+                "labelType": "success"
+            }
+        }
+    },
+    "No Axe No Worries": {
+        "name": "No Axe No Worries",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Chop fruit branches and stems without axes",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-1 wood from fruit branches and stems",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Catchup": {
+        "name": "Catchup",
+        "tree": "Fruit Patch",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% fruit growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Fruity Woody": {
+        "name": "Fruity Woody",
+        "tree": "Fruit Patch",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 wood from fruit branches and stems",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Pear Turbocharge": {
+        "name": "Pear Turbocharge",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Double Immortal Pear's effect",
+                "labelType": "success"
+            }
+        }
+    },
+    "Crime Fruit": {
+        "name": "Crime Fruit",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10 Tomato and Lemon seeds stock",
+                "labelType": "success"
+            }
+        }
+    },
+    "Generous Orchard": {
+        "name": "Generous Orchard",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "20% chance of +1 fruit yield",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Long Pickings": {
+        "name": "Long Pickings",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-50% Apple and Banana growth time",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+100% growth time for all other fruits",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Short Pickings": {
+        "name": "Short Pickings",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-50% Blueberry and Orange growth time",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+100% growth time for all other fruits",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Zesty Vibes": {
+        "name": "Zesty Vibes",
+        "tree": "Fruit Patch",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Tomato and Lemon yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.25 yield for all other fruits",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Lumberjack's Extra": {
+        "name": "Lumberjack's Extra",
+        "tree": "Trees",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 wood yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Tree Charge": {
+        "name": "Tree Charge",
+        "tree": "Trees",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% tree growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "More Axes": {
+        "name": "More Axes",
+        "tree": "Trees",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+50 axe stock",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Insta-Chop": {
+        "name": "Insta-Chop",
+        "tree": "Trees",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "1 Tap Trees",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Tough Tree": {
+        "name": "Tough Tree",
+        "tree": "Trees",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "1/10 chance of +3 wood yield",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Feller's Discount": {
+        "name": "Feller's Discount",
+        "tree": "Trees",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% axe cost",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Money Tree": {
+        "name": "Money Tree",
+        "tree": "Trees",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "1% chance of finding 200 Coins when chopping trees",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Tree Turnaround": {
+        "name": "Tree Turnaround",
+        "tree": "Trees",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "15% chance for trees to grow instantly",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Tree Blitz": {
+        "name": "Tree Blitz",
+        "tree": "Trees",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic",
+            "cooldown": 86400000
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Ability to make all trees instantly grow",
+                "labelType": "transparent"
+            }
+        },
+        "disabled": false,
+        "power": true
+    },
+    "Fisherman's 5 Fold": {
+        "name": "Fisherman's 5 Fold",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5 daily fishing limit",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Fishy Chance": {
+        "name": "Fishy Chance",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "10% chance of +1 basic fish",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Fishy Roll": {
+        "name": "Fishy Roll",
+        "tree": "Fishing",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "10% chance of +1 advanced fish",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Reel Deal": {
+        "name": "Reel Deal",
+        "tree": "Fishing",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-50% rod coin cost",
+                "labelType": "success"
+            }
+        }
+    },
+    "Fisherman's 10 Fold": {
+        "name": "Fisherman's 10 Fold",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10 daily fishing limit",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Fishy Fortune": {
+        "name": "Fishy Fortune",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+100% coins from Corale's deliveries",
+                "labelType": "success"
+            }
+        },
+        "disabled": false,
+        "npc": "corale"
+    },
+    "Big Catch": {
+        "name": "Big Catch",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Increase bar for catching game",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": true
+    },
+    "Fishy Gamble": {
+        "name": "Fishy Gamble",
+        "tree": "Fishing",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "20% chance of +1 expert fish",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Frenzied Fish": {
+        "name": "Frenzied Fish",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "During fish frenzy, +1 fish and 50% chance of +1 fish",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "More With Less": {
+        "name": "More With Less",
+        "tree": "Fishing",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+15 daily fishing limit",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-1 worm from all composters",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Fishy Feast": {
+        "name": "Fishy Feast",
+        "tree": "Fishing",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+20% Fish XP",
+                "labelType": "success"
+            }
+        }
+    },
+    "Efficient Feeding": {
+        "name": "Efficient Feeding",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-5% feed to feed all animals",
+                "labelType": "success"
+            }
+        }
+    },
+    "Restless Animals": {
+        "name": "Restless Animals",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Animal sleep time",
+                "labelType": "info"
+            }
+        }
+    },
+    "Fine Fibers": {
+        "name": "Fine Fibers",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Feather, Leather and Merino Wool yield",
+                "labelType": "success"
+            }
+        }
+    },
+    "Bountiful Bounties": {
+        "name": "Bountiful Bounties",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+50% Coins from Animal Bounties",
+                "labelType": "success"
+            }
+        }
+    },
+    "Double Bale": {
+        "name": "Double Bale",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Double Bale's Effect",
+                "labelType": "success"
+            }
+        }
+    },
+    "Bale Economy": {
+        "name": "Bale Economy",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Bale affects milk and wool production",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Abundant Harvest": {
+        "name": "Abundant Harvest",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.2 Egg, Wool and Milk yield",
+                "labelType": "success"
+            }
+        }
+    },
+    "Heartwarming Instruments": {
+        "name": "Heartwarming Instruments",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+50% Animal XP from Animal Affection tools",
+                "labelType": "success"
+            }
+        }
+    },
+    "Kale Mix": {
+        "name": "Kale Mix",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Mixed Grain requires 3 kale to mix instead",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Alternate Medicine": {
+        "tree": "Animals",
+        "name": "Alternate Medicine",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Barn Delight requires 1 less Lemon and Honey to mix",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Healthy Livestock": {
+        "name": "Healthy Livestock",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-50% chance of sickness",
+                "labelType": "vibrant"
+            }
+        }
+    },
+    "Clucky Grazing": {
+        "name": "Clucky Grazing",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-25% feed to feed Chickens",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+50% feed to feed other animals",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Sheepwise Diet": {
+        "name": "Sheepwise Diet",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-25% feed to feed Sheep",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+50% feed to feed other animals",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Cow-Smart Nutrition": {
+        "name": "Cow-Smart Nutrition",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-25% feed to feed Cows",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+50% feed to feed other animals",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Chonky Feed": {
+        "name": "Chonky Feed",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "2x animal xp from animal feed",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+50% feed to feed all animals",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Barnyard Rouse": {
+        "name": "Barnyard Rouse",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring",
+            "cooldown": 432000000
+        },
+        "power": true,
+        "boosts": {
+            "buff": {
+                "shortDescription": "Instantly wakes up all animals",
+                "labelType": "transparent"
+            }
+        }
+    },
+    "Glass Room": {
+        "name": "Glass Room",
+        "tree": "Greenhouse",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Greenhouse produce yield",
+                "labelType": "success"
+            }
+        }
+    },
+    "Seedy Business": {
+        "name": "Seedy Business",
+        "tree": "Greenhouse",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-15% Greenhouse seeds cost",
+                "labelType": "success"
+            }
+        }
+    },
+    "Rice and Shine": {
+        "name": "Rice and Shine",
+        "tree": "Greenhouse",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-5% growth time for greenhouse products",
+                "labelType": "info"
+            }
+        }
+    },
+    "Victoria's Secretary": {
+        "name": "Victoria's Secretary",
+        "tree": "Greenhouse",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+50% Coins from Victoria's deliveries",
+                "labelType": "success"
+            }
+        },
+        "npc": "victoria"
+    },
+    "Olive Express": {
+        "name": "Olive Express",
+        "tree": "Greenhouse",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Olive growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Rice Rocket": {
+        "name": "Rice Rocket",
+        "tree": "Greenhouse",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Rice growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Vine Velocity": {
+        "name": "Vine Velocity",
+        "tree": "Greenhouse",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Grape growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Seeded Bounty": {
+        "name": "Seeded Bounty",
+        "tree": "Greenhouse",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.5 Greenhouse produce yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+1 Greenhouse seed to plant",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Greenhouse Guru": {
+        "name": "Greenhouse Guru",
+        "tree": "Greenhouse",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert",
+            "cooldown": 345600000
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Ability to make all greenhouse produce currently growing ready to be harvested",
+                "labelType": "transparent"
+            }
+        },
+        "disabled": false,
+        "power": true
+    },
+    "Greenhouse Gamble": {
+        "name": "Greenhouse Gamble",
+        "tree": "Greenhouse",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "25% chance of +1 greenhouse produce",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Slick Saver": {
+        "name": "Slick Saver",
+        "tree": "Greenhouse",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-1 Oil to grow greenhouse products",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Greasy Plants": {
+        "name": "Greasy Plants",
+        "tree": "Greenhouse",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Greenhouse produce yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+100% Oil consumption in greenhouse",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Rock'N'Roll": {
+        "name": "Rock'N'Roll",
+        "tree": "Mining",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Stone Yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Iron Bumpkin": {
+        "name": "Iron Bumpkin",
+        "tree": "Mining",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Iron Yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Speed Miner": {
+        "name": "Speed Miner",
+        "tree": "Mining",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% Stone recovery time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Tap Prospector": {
+        "name": "Tap Prospector",
+        "tree": "Mining",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "1 tap small mineral nodes",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Forge-Ward Profits": {
+        "name": "Forge-Ward Profits",
+        "tree": "Mining",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+20% Blacksmith deliveries revenue",
+                "labelType": "success"
+            }
+        },
+        "disabled": false,
+        "npc": "blacksmith"
+    },
+    "Iron Hustle": {
+        "name": "Iron Hustle",
+        "tree": "Mining",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-30% Iron recovery time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Frugal Miner": {
+        "name": "Frugal Miner",
+        "tree": "Mining",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% coin cost for all pickaxes",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Rocky Favor": {
+        "name": "Rocky Favor",
+        "tree": "Mining",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Stone yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.5 Iron yield",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Fire Kissed": {
+        "name": "Fire Kissed",
+        "tree": "Mining",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Crimstone yield on 5th consecutive mine",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Midas Sprint": {
+        "name": "Midas Sprint",
+        "tree": "Mining",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Gold recovery time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Ferrous Favor": {
+        "name": "Ferrous Favor",
+        "tree": "Mining",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Iron yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.5 Stone yield",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Golden Touch": {
+        "name": "Golden Touch",
+        "tree": "Mining",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.5 Gold Yield",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "More Picks": {
+        "name": "More Picks",
+        "tree": "Mining",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Increased stock: +70 Pickaxe, +20 Stone Pickaxe, +7 Iron Pickaxe, +2 Gold Pickaxe",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Fireside Alchemist": {
+        "name": "Fireside Alchemist",
+        "tree": "Mining",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-15% Crimstone recovery time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Midas Rush": {
+        "name": "Midas Rush",
+        "tree": "Mining",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% Gold recovery time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Fast Feasts": {
+        "name": "Fast Feasts",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Firepit and Kitchen cooking time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Nom Nom": {
+        "name": "Nom Nom",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10% Food deliveries revenue",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Munching Mastery": {
+        "name": "Munching Mastery",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5% Experience from eating meals",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Swift Sizzle": {
+        "name": "Swift Sizzle",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-40% Fire Pit cooking time with oil",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Frosted Cakes": {
+        "name": "Frosted Cakes",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Cakes cooking time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Juicy Boost": {
+        "name": "Juicy Boost",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10% experience for drinks from the Smoothie Shack",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Turbo Fry": {
+        "name": "Turbo Fry",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-50% Kitchen cooking time with oil",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Drive-Through Deli": {
+        "name": "Drive-Through Deli",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+15% experience for meals from the Deli",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Instant Gratification": {
+        "name": "Instant Gratification",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic",
+            "cooldown": 345600000
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Ability to make all meals currently cooking ready to be eaten",
+                "labelType": "transparent"
+            }
+        },
+        "disabled": false,
+        "power": true
+    },
+    "Double Nom": {
+        "name": "Double Nom",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 food from cooking",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "2x ingredients required for cooking",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Fiery Jackpot": {
+        "name": "Fiery Jackpot",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+20% Chance of +1 food from Firepit",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Fry Frenzy": {
+        "name": "Fry Frenzy",
+        "tree": "Cooking",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-60% Deli cooking time with oil",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Sweet Bonus": {
+        "name": "Sweet Bonus",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Honey per hive",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Hyper Bees": {
+        "name": "Hyper Bees",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.1 Honey production speed",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Blooming Boost": {
+        "name": "Blooming Boost",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Flower growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Flower Sale": {
+        "name": "Flower Sale",
+        "tree": "Bees & Flowers",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% Flower Seeds cost",
+                "labelType": "success"
+            }
+        }
+    },
+    "Buzzworthy Treats": {
+        "name": "Buzzworthy Treats",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10% Experience on food made with Honey",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Blossom Bonding": {
+        "name": "Blossom Bonding",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+2 relationship points for gifting flowers",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Pollen Power Up": {
+        "name": "Pollen Power Up",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Additional +0.1 crop yield after pollination (total +0.3)",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Petalled Perk": {
+        "name": "Petalled Perk",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "10% chance of +1 Flower",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Bee Collective": {
+        "name": "Bee Collective",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+20% Bee Swarm chance",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Flower Power": {
+        "name": "Flower Power",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% Flower growth time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Flowery Abode": {
+        "name": "Flowery Abode",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.5 Honey production speed",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+50% Flower growth time",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Petal Blessed": {
+        "name": "Petal Blessed",
+        "tree": "Bees & Flowers",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring",
+            "cooldown": 345600000
+        },
+        "disabled": false,
+        "power": true,
+        "boosts": {
+            "buff": {
+                "shortDescription": "Ability to make all flowers currently growing ready to be harvested",
+                "labelType": "transparent"
+            }
+        }
+    },
+    "Crop Processor Unit": {
+        "name": "Crop Processor Unit",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-5% Crop Machine growth time",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+10% Oil consumption in Crop Machine",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Oil Gadget": {
+        "name": "Oil Gadget",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% Oil consumption in Crop Machine",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Oil Extraction": {
+        "name": "Oil Extraction",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Oil when collecting from reserves",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Leak-Proof Tank": {
+        "name": "Leak-Proof Tank",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Triple oil tank capacity in crop machine",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Crop Extension Module": {
+        "name": "Crop Extension Module",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Allow Carrot and Cabbage seeds to be used in crop machine",
+                "labelType": "vibrant"
+            }
+        },
+        "disabled": false
+    },
+    "Rapid Rig": {
+        "name": "Rapid Rig",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% Crop Machine growth time",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "+40% Oil consumption in Crop Machine",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Oil Be Back": {
+        "name": "Oil Be Back",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-20% Oil refill time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Field Expansion Module": {
+        "name": "Field Expansion Module",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5 packs added to machine queue system",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Field Extension Module": {
+        "name": "Field Extension Module",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5 plots added to machine",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Efficiency Extension Module": {
+        "name": "Efficiency Extension Module",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-30% Oil consumption in Crop Machine",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Grease Lightning": {
+        "name": "Grease Lightning",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "desert",
+            "cooldown": 345600000
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Ability to make empty oil wells instantly refill",
+                "labelType": "transparent"
+            }
+        },
+        "disabled": false,
+        "power": true
+    },
+    "Efficient Bin": {
+        "name": "Efficient Bin",
+        "tree": "Compost",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5 Sprout Mix",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Turbo Charged": {
+        "name": "Turbo Charged",
+        "tree": "Compost",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5 Fruitful Blend",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Wormy Treat": {
+        "name": "Wormy Treat",
+        "tree": "Compost",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+1 Worm",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Feathery Business": {
+        "name": "Feathery Business",
+        "tree": "Compost",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Use feathers instead of eggs to boost composters",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "2x feathers to boost composters",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Sprout Surge": {
+        "name": "Sprout Surge",
+        "tree": "Compost",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "disabled": false,
+        "power": true,
+        "boosts": {
+            "buff": {
+                "shortDescription": "Put Sprout Mix on all plots",
+                "labelType": "transparent"
+            }
+        }
+    },
+    "Blend-tastic": {
+        "name": "Blend-tastic",
+        "tree": "Compost",
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "basic"
+        },
+        "disabled": false,
+        "power": true,
+        "boosts": {
+            "buff": {
+                "shortDescription": "Put Fruitful Blend on all plots",
+                "labelType": "transparent"
+            }
+        }
+    },
+    "Premium Worms": {
+        "name": "Premium Worms",
+        "tree": "Compost",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+10 Rapid Root",
+                "labelType": "success"
+            }
+        },
+        "disabled": false
+    },
+    "Fruitful Bounty": {
+        "name": "Fruitful Bounty",
+        "tree": "Compost",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "disabled": false,
+        "boosts": {
+            "buff": {
+                "shortDescription": "Double Fruitful Blend's Effect",
+                "labelType": "success"
+            }
+        }
+    },
+    "Swift Decomposer": {
+        "name": "Swift Decomposer",
+        "tree": "Compost",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "-10% compost time",
+                "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Composting Bonanza": {
+        "name": "Composting Bonanza",
+        "tree": "Compost",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Speed up composters by an additional hour when boosting",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "2x resources to boost composters",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Root Rocket": {
+        "name": "Root Rocket",
+        "tree": "Compost",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "basic"
+        },
+        "disabled": false,
+        "power": true,
+        "boosts": {
+            "buff": {
+                "shortDescription": "Put Rapid Root on all plots",
+                "labelType": "transparent"
+            }
+        }
+    },
+    "Composting Overhaul": {
+        "name": "Composting Overhaul",
+        "tree": "Compost",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+2 Worms",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-5 fertilisers",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    },
+    "Composting Revamp": {
+        "name": "Composting Revamp",
+        "tree": "Compost",
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "basic"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+5 fertilisers",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-3 Worms",
+                "labelType": "danger"
+            }
+        },
+        "disabled": false
+    }
+}
