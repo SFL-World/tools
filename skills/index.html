@@ -88,7 +88,7 @@
             background-color: #f8d7da;
             color: #721c24;
         }
-        .tier-locked .skill-item {
+        .tier-locked .skill-item:not(.selected) {
             cursor: not-allowed;
         }
         @media (max-width: 768px) {
@@ -99,8 +99,8 @@
                 width: 120px;
             }
             .stats-container .col-4 {
-                width: 100%; /* Каждый блок занимает всю ширину */
-                margin-bottom: 5px; /* Отступ между блоками */
+                width: 100%;
+                margin-bottom: 5px;
             }
         }
     </style>
@@ -215,7 +215,7 @@
 
                 tierSkills.forEach(skill => {
                     const skillDiv = $(`
-                            <div class="skill-item" data-category="${category}" 
+                            <div class="skill-item" data-category="${category}"
                                  data-tier="${tier}" data-points="${skill.requirements.points}"
                                  data-name="${skill.name}" data-bs-toggle="tooltip" data-bs-placement="top">
                                 <div class="skill-name">${skill.name} (${skill.requirements.points} pts)</div>
@@ -288,16 +288,19 @@
             const spentInCategory = selectedSkills[category].reduce((sum, skill) =>
                 sum + parseInt($(skill).data('points')), 0);
             const requiredForTier = skillPointsPerTier[category][tier];
+            const isSelected = $skill.hasClass('selected');
 
-            if ($skill.hasClass('disabled') && !$skill.hasClass('selected')) {
-                let tooltipText = '';
-                if (remaining < points) {
-                    tooltipText = 'Not enough remaining points';
-                } else if (spentInCategory < requiredForTier) {
-                    tooltipText = `Need ${requiredForTier - spentInCategory} more points in ${category} to unlock this tier`;
-                }
-                $skill.attr('data-bs-title', tooltipText);
+            if (isSelected) {
+                $skill.removeClass('disabled');
+                $skill.attr('data-bs-title', '');
+            } else if (remaining < points) {
+                $skill.addClass('disabled');
+                $skill.attr('data-bs-title', 'Not enough remaining points');
+            } else if (spentInCategory < requiredForTier) {
+                $skill.addClass('disabled');
+                $skill.attr('data-bs-title', `Need ${requiredForTier - spentInCategory} more points in ${category} to unlock this tier`);
             } else {
+                $skill.removeClass('disabled');
                 $skill.attr('data-bs-title', '');
             }
         });
@@ -353,14 +356,11 @@
         [2, 3].forEach(tier => {
             const required = skillPointsPerTier[category][tier];
             const $tierSection = $(`.category-panel[data-category="${category}"] .tier-${tier}`);
-            const $tierSkills = $tierSection.find('.skill-item:not(.selected)');
 
             if (spentPoints < required) {
                 $tierSection.addClass('tier-locked');
-                $tierSkills.addClass('disabled');
             } else {
                 $tierSection.removeClass('tier-locked');
-                $tierSkills.removeClass('disabled');
             }
         });
     }
@@ -379,7 +379,7 @@
             $('#availablePoints').val(availablePoints);
 
             // Reset currently selected skills
-            $('.skill-item').removeClass('selected');
+            $('.skill-item').removeClass('selected').removeClass('disabled');
             Object.keys(selectedSkills).forEach(category => selectedSkills[category] = []);
 
             // Automatically select skills from bumpkin.skills
