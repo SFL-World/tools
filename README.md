@@ -14,7 +14,6 @@ https://sfl.world/tools/skills/
 Trading View for resources (AI generated)
 #### TODO
 + Highlight on the graph: Week transitions, season changes, chapter updates, and major events like FLOWER token withdrawals becoming available (I'll develop an API for this feature)
-+ Read the query string to enable direct URLs to specific resources, like: ".../trade/?name=Wood" or ".../trade/?id=601"
 + Compare price changes between two resource pairs, like Wood/FLOWER vs Stone/FLOWER (601.csv vs 602.csv)
 + Add indicators, for example, Simple Moving Average (SMA)
 

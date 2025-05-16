@@ -6,36 +6,14 @@
     <title>Price History Visualization</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Lightweight Charts (version 4.1.6) -->
-    <script src="https://unpkg.com/lightweight-charts@4.1.6/dist/lightweight-charts.standalone.production.js"></script>
     <!-- Bootstrap Datepicker CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        #chart {
-            width: 100%;
-            height: 600px;
-            margin-top: 20px;
-        }
-        .stats {
-            margin-top: 20px;
-        }
-        .dropdown-menu {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .error-message {
-            color: #dc3545;
-            display: none;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1 class="mb-4">Resource Price History</h1>
+    <h1 class="mb-4">Resource Price History v1.0</h1>
     <div id="errorMessage" class="error-message alert alert-danger"></div>
     <div class="row mb-3">
         <div class="col-md-4">
@@ -46,7 +24,7 @@
         </div>
         <div class="col-md-4">
             <label for="dateRange" class="form-label">Select Date Range</label>
-            <input type="text" id="dateRange" class="form-control" placeholder="Select date range">
+            <input type="text" id="dateRange" class="form-control" placeholder="Select date range (yyyy-mm-dd)">
         </div>
     </div>
     <div id="chart"></div>
@@ -66,210 +44,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Bootstrap Datepicker JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script>
-    // Check if LightweightCharts is loaded
-    if (typeof LightweightCharts === 'undefined') {
-        document.getElementById('errorMessage').textContent = 'Error: Lightweight Charts library failed to load.';
-        document.getElementById('errorMessage').style.display = 'block';
-        throw new Error('LightweightCharts not loaded');
-    }
-
-    // Initialize chart
-    const chartContainer = document.getElementById('chart');
-    const chart = LightweightCharts.createChart(chartContainer, {
-        width: chartContainer.clientWidth,
-        height: 600,
-        layout: {
-            background: { color: '#ffffff' },
-            textColor: '#333',
-        },
-        grid: {
-            vertLines: { color: '#e9ecef' },
-            horzLines: { color: '#e9ecef' },
-        },
-        timeScale: {
-            timeVisible: true,
-            secondsVisible: false,
-        },
-        rightPriceScale: {
-            borderColor: '#e9ecef',
-        },
-    });
-
-    // Verify line series method exists
-    if (!chart.addLineSeries) {
-        document.getElementById('errorMessage').textContent = 'Error: addLineSeries is not available in this version of Lightweight Charts.';
-        document.getElementById('errorMessage').style.display = 'block';
-        throw new Error('addLineSeries not available');
-    }
-
-    const lineSeries = chart.addLineSeries({
-        color: '#007bff',
-        lineWidth: 2,
-    });
-
-    // Initialize datepicker
-    $('#dateRange').datepicker({
-        format: 'mm/dd/yyyy',
-        range: true,
-        multidate: 2,
-        todayHighlight: true,
-    }).on('changeDate', function(e) {
-        if (e.dates.length === 2) {
-            const from = Math.min(e.dates[0].getTime() / 1000, e.dates[1].getTime() / 1000);
-            const to = Math.max(e.dates[0].getTime() / 1000, e.dates[1].getTime() / 1000);
-            loadChartData(currentUrl, from, to);
-        }
-    });
-
-    let currentUrl = 'data/601.csv'; // Default to Wood
-
-    // Load structure.json and populate dropdown dynamically
-    fetch('data/structure.json')
-        .then(response => response.json())
-        .then(data => {
-            const resourceSelect = document.getElementById('resourceSelect');
-            resourceSelect.innerHTML = ''; // Clear existing content
-
-            // Iterate over all groups in structure.json
-            Object.keys(data).forEach(group => {
-                const optgroup = document.createElement('optgroup');
-                optgroup.label = group;
-
-                // Populate items within the group
-                Object.keys(data[group]).forEach(item => {
-                    const resource = data[group][item];
-                    const option = document.createElement('option');
-                    option.value = resource.url;
-                    option.textContent = item;
-                    optgroup.appendChild(option);
-                });
-
-                resourceSelect.appendChild(optgroup);
-            });
-
-            // Set default selection to first option (Wood)
-            if (resourceSelect.options.length > 0) {
-                resourceSelect.value = 'data/601.csv';
-                currentUrl = resourceSelect.value;
-                loadChartData(currentUrl);
-            }
-        })
-        .catch(error => {
-            document.getElementById('errorMessage').textContent = 'Error loading structure.json: ' + error.message;
-            document.getElementById('errorMessage').style.display = 'block';
-            console.error('Error loading structure.json:', error);
-        });
-
-    // Handle resource selection
-    document.getElementById('resourceSelect').addEventListener('change', function() {
-        currentUrl = this.value;
-        const dateRange = $('#dateRange').datepicker('getDates');
-        if (dateRange.length === 2) {
-            const from = Math.min(dateRange[0].getTime() / 1000, dateRange[1].getTime() / 1000);
-            const to = Math.max(dateRange[0].getTime() / 1000, e.dates[1].getTime() / 1000);
-            loadChartData(currentUrl, from, to);
-        } else {
-            loadChartData(currentUrl);
-        }
-    });
-
-    // Function to load and process CSV data
-    function loadChartData(url, from, to) {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) throw new Error('Failed to fetch CSV: ' + response.statusText);
-                return response.text();
-            })
-            .then(csvText => {
-                const lines = csvText.trim().split('\n');
-                const data = lines.map(line => {
-                    const [time, price] = line.split(',');
-                    const date = new Date(time);
-                    if (isNaN(date)) throw new Error('Invalid date format in CSV');
-                    const unixTime = Math.floor(date.getTime() / 1000);
-                    const priceValue = parseFloat(price);
-                    if (isNaN(priceValue)) throw new Error('Invalid price format in CSV');
-                    return {
-                        time: unixTime,
-                        value: priceValue,
-                    };
-                });
-
-                // Filter data by date range if provided
-                let filteredData = data;
-                if (from && to) {
-                    filteredData = data.filter(d => d.time >= from && d.time <= to);
-                }
-
-                // Calculate statistics
-                const prices = filteredData.map(d => d.value);
-                const maxPrice = prices.length ? Math.max(...prices) : NaN;
-                const minPrice = prices.length ? Math.min(...prices) : NaN;
-                const avgPrice = prices.length ? prices.reduce((sum, p) => sum + p, 0) / prices.length : NaN;
-                const priceRange = prices.length ? maxPrice - minPrice : NaN;
-
-                // Update statistics display
-                document.getElementById('maxPrice').textContent = isNaN(maxPrice) ? 'N/A' : maxPrice.toFixed(6);
-                document.getElementById('minPrice').textContent = isNaN(minPrice) ? 'N/A' : minPrice.toFixed(6);
-                document.getElementById('avgPrice').textContent = isNaN(avgPrice) ? 'N/A' : avgPrice.toFixed(6);
-                document.getElementById('priceRange').textContent = isNaN(priceRange) ? 'N/A' : priceRange.toFixed(6);
-                document.getElementById('dataPoints').textContent = prices.length;
-
-                // Update chart
-                lineSeries.setData(filteredData);
-
-                // Add markers for max and min prices
-                const maxIndex = prices.indexOf(maxPrice);
-                const minIndex = prices.indexOf(minPrice);
-                const markers = [];
-                if (maxIndex !== -1) {
-                    markers.push({
-                        time: filteredData[maxIndex].time,
-                        position: 'aboveBar',
-                        color: '#dc3545',
-                        shape: 'arrowDown',
-                        text: 'Max: ' + maxPrice.toFixed(6),
-                    });
-                }
-                if (minIndex !== -1) {
-                    markers.push({
-                        time: filteredData[minIndex].time,
-                        position: 'belowBar',
-                        color: '#28a745',
-                        shape: 'arrowUp',
-                        text: 'Min: ' + minPrice.toFixed(6),
-                    });
-                }
-                lineSeries.setMarkers(markers);
-
-                // Remove existing price lines and add average price line
-                lineSeries.priceLines = []; // Clear previous price lines
-                if (!isNaN(avgPrice)) {
-                    lineSeries.createPriceLine({
-                        price: avgPrice,
-                        color: '#007bff',
-                        lineWidth: 2,
-                        lineStyle: LightweightCharts.LineStyle.Dashed,
-                        axisLabelVisible: true,
-                        title: 'Avg: ' + avgPrice.toFixed(6),
-                    });
-                }
-
-                // Auto-fit the time scale
-                chart.timeScale().fitContent();
-            })
-            .catch(error => {
-                document.getElementById('errorMessage').textContent = 'Error loading CSV: ' + error.message;
-                document.getElementById('errorMessage').style.display = 'block';
-                console.error('Error loading CSV:', error);
-            });
-    }
-
-    // Resize chart on window resize
-    window.addEventListener('resize', () => {
-        chart.resize(chartContainer.clientWidth, 600);
-    });
-</script>
+<!-- Lightweight Charts (version 4.1.6) -->
+<script src="https://unpkg.com/lightweight-charts@4.1.6/dist/lightweight-charts.standalone.production.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js?20250516-5"></script>
 </body>
 </html>
