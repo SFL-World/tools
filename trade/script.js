@@ -53,7 +53,7 @@ $('#dateRange').datepicker({
     }
 });
 
-let currentUrl = '/api/v1/trade/601.csv'; // Default to Wood
+let currentUrl = '/api/v1/trade/csv/601.csv'; // Default to Wood
 let resourceMap = {}; // Store resource name to URL mapping
 
 // Parse URL query parameter for default resource
@@ -67,7 +67,7 @@ fetch('/api/v1/trade/structure.json')
         const resourceSelect = document.getElementById('resourceSelect');
         resourceSelect.innerHTML = ''; // Clear existing content
 
-        let selectedUrl = '/api/v1/trade/601.csv'; // Fallback default
+        let selectedUrl = '/api/v1/trade/csv/601.csv'; // Fallback default
         let resourceFound = false;
 
         // Iterate over all groups in structure.json
