@@ -5,6 +5,12 @@ if (typeof LightweightCharts === 'undefined') {
     throw new Error('LightweightCharts not loaded');
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Keep track of any existing “week‐boundary” series so we can remove them
+// before drawing new data. (Each Monday gets its own vertical line series.)
+let weekLines = [];
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Initialize chart
 const chartContainer = document.getElementById('chart');
 const chart = LightweightCharts.createChart(chartContainer, {
@@ -38,6 +44,14 @@ let lineSeries = chart.addLineSeries({
     color: '#007bff',
     lineWidth: 2,
 });
+
+
+// ───────────────────────────────────────────────────────────
+// Remove any old weekLines from the chart
+weekLines.forEach(s => chart.removeSeries(s));
+weekLines =[];
+// ───────────────────────────────────────────────────────────
+
 
 // Initialize datepicker with yyyy-mm-dd format
 $('#dateRange').datepicker({
@@ -217,6 +231,43 @@ function loadChartData(url, from, to) {
             }
             lineSeries.setMarkers(markers);
 
+            // ───────────────────────────────────────────────────────────
+            // Now draw a vertical line for each Monday in the visible range:
+            if (filteredData.length) {
+                // Determine the timestamp range (in seconds)
+                const firstTs = filteredData[0].time * 1000;  // in ms
+                const lastTs = filteredData[filteredData.length - 1].time * 1000;
+                
+                // Find the first Monday on or after the very first data point
+                const firstDate = new Date(firstTs);
+                // getDay(): 0=Sun, 1=Mon, …,6=Sat
+                const offsetToMonday = (8 - firstDate.getUTCDay()) % 7;
+                const firstMonday = new Date(firstDate.getTime() + offsetToMonday * 24 * 60 * 60 * 1000);
+                
+                // Loop from that Monday until we exceed lastTs
+                for (let d = firstMonday.getTime(); d <= lastTs; d += 7 * 24 * 60 * 60 * 1000) {
+                    // Convert back to Unix‐seconds
+                    const mondayTimestamp = Math.floor(d / 1000);
+                    
+                    // Create a tiny 2-point series straight up from minPrice to maxPrice
+                    const vertSeries = chart.addLineSeries({
+                        color: '#20b2aa',
+                        lineWidth: 1,
+                        crosshairMarkerVisible: false,
+                        priceLineVisible: false,
+                        lastValueVisible: false,
+                        priceScaleId: '',        // overlay on main price scale
+                        scaleMargins: { top: 0, bottom: 0 },
+                    });
+                    vertSeries.setData([
+                        { time: mondayTimestamp, value: minPrice },
+                        { time: mondayTimestamp, value: maxPrice },
+                    ]);
+                    weekLines.push(vertSeries);
+                }
+            }
+            // ───────────────────────────────────────────────────────────
+            
             // Add average price line if valid
             if (!isNaN(avgPrice)) {
                 lineSeries.createPriceLine({
