@@ -1,6 +1,6 @@
 body {
     padding: 20px;
-    background-color: #f8f9fa;
+    font-family: 'proxima_nova_rgregular', Arial, helvtica;
 }
 #chart {
     width: 100%;

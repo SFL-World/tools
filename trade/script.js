@@ -5,11 +5,11 @@ if (typeof LightweightCharts === 'undefined') {
     throw new Error('LightweightCharts not loaded');
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+
 // Keep track of any existing “week‐boundary” series so we can remove them
 // before drawing new data. (Each Monday gets its own vertical line series.)
 let weekLines = [];
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 // Initialize chart
 const chartContainer = document.getElementById('chart');
@@ -43,15 +43,12 @@ if (!chart.addLineSeries) {
 let lineSeries = chart.addLineSeries({
     color: '#007bff',
     lineWidth: 2,
+    priceFormat: {
+        type: 'price',
+        precision: 5,
+        minMove: 0.00001,
+    },
 });
-
-
-// ───────────────────────────────────────────────────────────
-// Remove any old weekLines from the chart
-weekLines.forEach(s => chart.removeSeries(s));
-weekLines =[];
-// ───────────────────────────────────────────────────────────
-
 
 // Initialize datepicker with yyyy-mm-dd format
 $('#dateRange').datepicker({
@@ -147,6 +144,28 @@ document.getElementById('resourceSelect').addEventListener('change', function() 
     }
 });
 
+// Function to get all Monday midnights in the given time range
+function getMondayMidnights(startTime, endTime) {
+    const mondays = [];
+    const startDate = new Date(startTime * 1000);
+    const endDate = new Date(endTime * 1000);
+
+    // Find the first Monday on or after startDate
+    let current = new Date(startDate);
+    current.setHours(0, 0, 0, 0); // Set to midnight
+    while (current.getDay() !== 1) {
+        current.setDate(current.getDate() + 1);
+    }
+
+    // Add all Mondays until endDate
+    while (current <= endDate) {
+        mondays.push(Math.floor(current.getTime() / 1000));
+        current.setDate(current.getDate() + 7); // Move to next Monday
+    }
+
+    return mondays;
+}
+
 // Function to load and process CSV data
 function loadChartData(url, from, to) {
     // Clear error message
@@ -202,15 +221,20 @@ function loadChartData(url, from, to) {
             lineSeries = chart.addLineSeries({
                 color: '#007bff',
                 lineWidth: 2,
+                priceFormat: {
+                    type: 'price',
+                    precision: 5,
+                    minMove: 0.00001,
+                },
             });
 
             // Update chart with new data
             lineSeries.setData(filteredData);
 
             // Add markers for max and min prices
+            const markers = [];
             const maxIndex = prices.indexOf(maxPrice);
             const minIndex = prices.indexOf(minPrice);
-            const markers = [];
             if (maxIndex !== -1) {
                 markers.push({
                     time: filteredData[maxIndex].time,
@@ -229,9 +253,30 @@ function loadChartData(url, from, to) {
                     text: 'Min: ' + minPrice.toFixed(6),
                 });
             }
+
+            // Add markers for Monday midnights
+            /*if (filteredData.length > 0) {
+                const startTime = filteredData[0].time;
+                const endTime = filteredData[filteredData.length - 1].time;
+                const mondayTimestamps = getMondayMidnights(startTime, endTime);
+                mondayTimestamps.forEach(time => {
+                    markers.push({
+                        time: time,
+                        position: 'inBar',
+                        color: '#6c757d',
+                        shape: 'circle',
+                        text: 'Week Start',
+                        size: 2,
+                    });
+                });
+            }*/
+
             lineSeries.setMarkers(markers);
 
-            // ───────────────────────────────────────────────────────────
+
+            // Remove any old weekLines from the chart
+            weekLines.forEach(s => chart.removeSeries(s));
+            weekLines =[];
             // Now draw a vertical line for each Monday in the visible range:
             if (filteredData.length) {
                 // Determine the timestamp range (in seconds)
@@ -240,11 +285,15 @@ function loadChartData(url, from, to) {
                 
                 // Find the first Monday on or after the very first data point
                 const firstDate = new Date(firstTs);
-                // getDay(): 0=Sun, 1=Mon, …,6=Sat
-                const offsetToMonday = (8 - firstDate.getUTCDay()) % 7;
-                const firstMonday = new Date(firstDate.getTime() + offsetToMonday * 24 * 60 * 60 * 1000);
-                
-                // Loop from that Monday until we exceed lastTs
+                const firstUTCDate = new Date(Date.UTC(
+                    firstDate.getUTCFullYear(),
+                    firstDate.getUTCMonth(),
+                    firstDate.getUTCDate()
+                ));
+                const offsetToMonday = (8 - firstUTCDate.getUTCDay()) % 7;
+                let firstMonday = new Date(firstUTCDate.getTime() + offsetToMonday * 24 * 60 * 60 * 1000);
+
+                // Цикл от этого понедельника до превышения lastTs
                 for (let d = firstMonday.getTime(); d <= lastTs; d += 7 * 24 * 60 * 60 * 1000) {
                     // Convert back to Unix‐seconds
                     const mondayTimestamp = Math.floor(d / 1000);

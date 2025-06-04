@@ -9,11 +9,11 @@
     <!-- Bootstrap Datepicker CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="styles.css" rel="stylesheet">
+    <link href="styles.css?2025060401" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1 class="mb-4">Resource Price History v1.0</h1>
+    <h5 class="mb-4">Resource Price History <small>v1.0.2</small></h5>
     <div id="errorMessage" class="error-message alert alert-danger"></div>
     <div class="row mb-3">
         <div class="col-md-4">
@@ -29,12 +29,14 @@
     </div>
     <div id="chart"></div>
     <div class="stats">
-        <h3>Statistics</h3>
-        <p><strong>Maximum Price:</strong> <span id="maxPrice"></span></p>
-        <p><strong>Minimum Price:</strong> <span id="minPrice"></span></p>
-        <p><strong>Average Price:</strong> <span id="avgPrice"></span></p>
-        <p><strong>Price Range:</strong> <span id="priceRange"></span></p>
-        <p><strong>Data Points:</strong> <span id="dataPoints"></span></p>
+        <h5>Statistics</h5>
+        <table>
+            <tr><td>Maximum Price</td><td class="text-right"><span id="maxPrice"></span></td></tr>
+            <tr><td>Minimum Price</td><td class="text-right"><span id="minPrice"></span></td></tr>
+            <tr><td>Average Price</td><td class="text-right"><span id="avgPrice"></span></td></tr>
+            <tr><td>Price Range</td><td class="text-right"><span id="priceRange"></span></td></tr>
+            <tr><td>Data Points</td><td class="text-right"><span id="dataPoints"></span></td></tr>
+        </table>
     </div>
 </div>
 
@@ -47,6 +49,6 @@
 <!-- Lightweight Charts (version 4.1.6) -->
 <script src="https://unpkg.com/lightweight-charts@4.1.6/dist/lightweight-charts.standalone.production.js"></script>
 <!-- Custom JavaScript -->
-<script src="script.js?20250516-6"></script>
+<script src="script.js?2025060409"></script>
 </body>
 </html>
