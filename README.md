@@ -18,3 +18,12 @@ Trading View for resources (AI generated)
 + Add indicators, for example, Simple Moving Average (SMA)
 
 https://sfl.world/tools/trade/
+
+# docs
+SFL Community Docs (AI generated)
+#### TODO
++ Structure
++ Content
++ Cranslate
+
+https://sfl.world/tools/doc/

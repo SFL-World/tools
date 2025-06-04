@@ -1,0 +1,154 @@
+{
+  "sections": [
+    {
+      "title": "Player Guides",
+      "alias": "player-guides",
+      "items": [
+        {
+          "title": "FAQ",
+          "alias": "faq",
+          "type": "page",
+          "content": "content/player-guides/faq.en.md",
+          "languages": ["en", "ru", "es", "id", "zh"]
+        },
+        {
+          "title": "Discovering Resources",
+          "alias": "discovering-resources",
+          "type": "page",
+          "content": "content/player-guides/discovering-resources.en.md",
+          "languages": ["en", "ru"]
+        },
+        {
+          "title": "Planting & Harvesting",
+          "alias": "planting-harvesting",
+          "type": "page",
+          "content": "content/player-guides/planting-harvesting.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Cooking",
+          "alias": "cooking",
+          "type": "page",
+          "content": "content/player-guides/cooking.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Gather Resources",
+          "alias": "gather-resources",
+          "type": "page",
+          "content": "content/player-guides/gather-resources.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Deliveries",
+          "alias": "deliveries",
+          "type": "page",
+          "content": "content/player-guides/deliveries.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Skills",
+          "alias": "skills",
+          "type": "page",
+          "content": "content/player-guides/skills.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Land Expansions",
+          "alias": "land-expansions",
+          "type": "page",
+          "content": "content/player-guides/land-expansions.en.md",
+          "languages": ["en"]
+        }
+      ]
+    },
+    {
+      "title": "Advanced",
+      "alias": "advanced",
+      "items": [
+        {
+          "title": "Fishing",
+          "alias": "fishing",
+          "type": "page",
+          "content": "content/advanced/fishing.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Digging",
+          "alias": "digging",
+          "type": "page",
+          "content": "content/advanced/digging.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Factions",
+          "alias": "factions",
+          "type": "page",
+          "content": "content/advanced/factions.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Auctions",
+          "alias": "auctions",
+          "type": "page",
+          "content": "content/advanced/auctions.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Animals",
+          "alias": "animals",
+          "type": "page",
+          "content": "content/advanced/animals.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Potion House",
+          "alias": "potion-house",
+          "type": "page",
+          "content": "content/advanced/potion-house.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Buds",
+          "alias": "buds",
+          "type": "page",
+          "content": "content/advanced/buds.en.md",
+          "languages": ["en"]
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "alias": "events",
+      "items": [
+        {
+          "title": "Seasons",
+          "alias": "seasons",
+          "type": "page",
+          "content": "content/events/seasons.en.md",
+          "languages": ["en"]
+        },
+        {
+          "title": "Love Island",
+          "alias": "love-island",
+          "type": "page",
+          "content": "content/events/love-island.en.md",
+          "languages": ["en"]
+        }
+      ]
+    },
+    {
+      "title": "Help",
+      "alias": "help",
+      "items": [
+        {
+          "title": "Markdown Reference",
+          "alias": "markdown-reference",
+          "type": "page",
+          "content": "content/help/markdown-reference.en.md",
+          "languages": ["en"]
+        }
+      ]
+    }
+  ]
+}
