@@ -702,22 +702,6 @@
         "disabled": false,
         "npc": "corale"
     },
-    "Big Catch": {
-        "name": "Big Catch",
-        "tree": "Fishing",
-        "requirements": {
-            "points": 2,
-            "tier": 2,
-            "island": "basic"
-        },
-        "boosts": {
-            "buff": {
-                "shortDescription": "Increase bar for catching game",
-                "labelType": "vibrant"
-            }
-        },
-        "disabled": true
-    },
     "Fishy Gamble": {
         "name": "Fishy Gamble",
         "tree": "Fishing",
