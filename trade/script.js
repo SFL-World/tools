@@ -50,6 +50,65 @@ let lineSeries = chart.addLineSeries({
     },
 });
 
+
+
+
+function updateChartTheme(theme) {
+    if (theme === 'dark') {
+        chart.applyOptions({
+            layout: {
+                background: { color: '#1a1a1a' },
+                textColor: '#e9ecef',
+            },
+            grid: {
+                vertLines: { color: '#2a2a2a' },
+                horzLines: { color: '#2a2a2a' },
+            },
+            rightPriceScale: {
+                borderColor: '#2a2a2a',
+            },
+        });
+        lineSeries.applyOptions({
+            color: '#3d8bfd', // Более светлый синий для тёмной темы
+        });
+    } else {
+        chart.applyOptions({
+            layout: {
+                background: { color: '#ffffff' },
+                textColor: '#333',
+            },
+            grid: {
+                vertLines: { color: '#e9ecef' },
+                horzLines: { color: '#e9ecef' },
+            },
+            rightPriceScale: {
+                borderColor: '#e9ecef',
+            },
+        });
+        lineSeries.applyOptions({
+            color: '#007bff', // Стандартный синий для светлой темы
+        });
+    }
+}
+
+// Обработчик изменения темы
+function handleThemeChange() {
+    const theme = document.documentElement.getAttribute('data-bs-theme');
+    updateChartTheme(theme);
+}
+
+// Наблюдатель за изменениями атрибута data-bs-theme
+const observer = new MutationObserver(handleThemeChange);
+observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-bs-theme']
+});
+
+// Инициализация темы при загрузке
+handleThemeChange();
+
+
+
 // Initialize datepicker with yyyy-mm-dd format
 $('#dateRange').datepicker({
     format: 'yyyy-mm-dd',
@@ -254,23 +313,6 @@ function loadChartData(url, from, to) {
                 });
             }
 
-            // Add markers for Monday midnights
-            /*if (filteredData.length > 0) {
-                const startTime = filteredData[0].time;
-                const endTime = filteredData[filteredData.length - 1].time;
-                const mondayTimestamps = getMondayMidnights(startTime, endTime);
-                mondayTimestamps.forEach(time => {
-                    markers.push({
-                        time: time,
-                        position: 'inBar',
-                        color: '#6c757d',
-                        shape: 'circle',
-                        text: 'Week Start',
-                        size: 2,
-                    });
-                });
-            }*/
-
             lineSeries.setMarkers(markers);
 
 
@@ -294,13 +336,14 @@ function loadChartData(url, from, to) {
                 let firstMonday = new Date(firstUTCDate.getTime() + offsetToMonday * 24 * 60 * 60 * 1000);
 
                 // Цикл от этого понедельника до превышения lastTs
+                const currentTheme = document.documentElement.getAttribute('data-bs-theme');
                 for (let d = firstMonday.getTime(); d <= lastTs; d += 7 * 24 * 60 * 60 * 1000) {
                     // Convert back to Unix‐seconds
                     const mondayTimestamp = Math.floor(d / 1000);
                     
                     // Create a tiny 2-point series straight up from minPrice to maxPrice
                     const vertSeries = chart.addLineSeries({
-                        color: '#20b2aa',
+                        color: currentTheme === 'dark' ? '#3d8bfd' : '#20b2aa', // Разные цвета для темной и светлой тем
                         lineWidth: 1,
                         crosshairMarkerVisible: false,
                         priceLineVisible: false,
@@ -319,9 +362,10 @@ function loadChartData(url, from, to) {
             
             // Add average price line if valid
             if (!isNaN(avgPrice)) {
+                const currentTheme = document.documentElement.getAttribute('data-bs-theme');
                 lineSeries.createPriceLine({
                     price: avgPrice,
-                    color: '#007bff',
+                    color: currentTheme === 'dark' ? '#3d8bfd' : '#007bff', // Разные цвета для темной и светлой тем
                     lineWidth: 2,
                     lineStyle: LightweightCharts.LineStyle.Dashed,
                     axisLabelVisible: true,
@@ -343,3 +387,29 @@ function loadChartData(url, from, to) {
 window.addEventListener('resize', () => {
     chart.resize(chartContainer.clientWidth, 600);
 });
+
+$(document).ready(function() {
+    initializeTheme();
+    $('#themeToggle').on('click', toggleTheme);
+});
+function toggleTheme() {
+    console.log('toggleTheme')
+    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    console.log('toggleTheme',newTheme)
+
+    document.documentElement.setAttribute('data-bs-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    updateThemeIcon(newTheme);
+}
+function updateThemeIcon(theme) {
+    const icon = $('#themeIcon');
+    icon.removeClass('bi-moon bi-brightness-high');
+    icon.addClass(theme === 'dark' ? 'bi-brightness-high' : 'bi-moon');
+}
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
