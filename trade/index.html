@@ -10,7 +10,7 @@
     <!-- Bootstrap Datepicker CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="styles.css?2025071607" rel="stylesheet">
+    <link href="styles.css?2025090801" rel="stylesheet">
     <script>
         const savedTheme = localStorage.getItem('theme') || 'light'
         document.documentElement.setAttribute('data-bs-theme', savedTheme)
@@ -20,11 +20,11 @@
 <body>
 <div class="container">
 
-    <div class="container-fluid mb-3">
+    <div class="mb-3">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center p-1">
             <div class="mb-2 mb-md-0">
                 <span class="fw-bold">
-                    <a href="https://sfl.world/" class="link-primary">SFL.World</a>  / Resource Price History <small>v1.0.3</small>
+                    <a href="https://sfl.world/" class="link-primary">SFL.World</a>  / Resource Price History <small>v1.1</small>
                 </span>
             </div>
         </div>
@@ -41,6 +41,19 @@
         <div class="col-md-4">
             <label for="dateRange" class="form-label">Select Date Range</label>
             <input type="text" id="dateRange" class="form-control" placeholder="Select date range (yyyy-mm-dd)">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Chart Type</label>
+            <div>
+                <div class="btn-group" role="group" id="chartTypeToggle">
+                    <button type="button" class="btn btn-outline-primary active" data-chart-type="line">
+                        <i class="bi bi-graph-up"></i> Line
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" data-chart-type="candlestick">
+                        <i class="bi bi-bar-chart-steps"></i> Candlestick
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <div id="chart"></div>
@@ -65,7 +78,7 @@
 <!-- Lightweight Charts (version 4.1.6) -->
 <script src="https://unpkg.com/lightweight-charts@4.1.6/dist/lightweight-charts.standalone.production.js"></script>
 <!-- Custom JavaScript -->
-<script src="script.js?2025071607"></script>
+<script src="script.js?2025090804"></script>
 
 <div class="theme-toggle" id="themeToggle">
     <i class="bi" id="themeIcon"></i>
