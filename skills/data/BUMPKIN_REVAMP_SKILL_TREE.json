@@ -866,6 +866,26 @@
             }
         }
     },
+    "Featherweight": {
+        "name": "Featherweight",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 1,
+            "tier": 1,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.25 Feather yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.35 Leather & Merino Wool yield",
+                "labelType": "danger"
+            }
+        }
+    },
     "Abundant Harvest": {
         "name": "Abundant Harvest",
         "tree": "Animals",
@@ -946,6 +966,26 @@
             }
         }
     },
+    "Merino Whisperer": {
+        "name": "Merino Whisperer",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.25 Merino Wool yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.35 Leather & Feather yield",
+                "labelType": "danger"
+            }
+        }
+    },
     "Clucky Grazing": {
         "name": "Clucky Grazing",
         "tree": "Animals",
@@ -1022,6 +1062,26 @@
             },
             "debuff": {
                 "shortDescription": "+50% feed to feed all animals",
+                "labelType": "danger"
+            }
+        }
+    },
+    "Leathercraft Mastery": {
+        "name": "Leathercraft Mastery",
+        "tree": "Animals",
+        "disabled": false,
+        "requirements": {
+            "points": 3,
+            "tier": 3,
+            "island": "spring"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "+0.25 Leather yield",
+                "labelType": "success"
+            },
+            "debuff": {
+                "shortDescription": "-0.35 Feather & Merino Wool yield",
                 "labelType": "danger"
             }
         }
@@ -2040,6 +2100,22 @@
             "buff": {
                 "shortDescription": "-20% Oil refill time",
                 "labelType": "info"
+            }
+        },
+        "disabled": false
+    },
+    "Oil Rig": {
+        "name": "Oil Rig",
+        "tree": "Machinery",
+        "requirements": {
+            "points": 2,
+            "tier": 2,
+            "island": "desert"
+        },
+        "boosts": {
+            "buff": {
+                "shortDescription": "Oil Drill requires 20 Wool instead of Leather to craft",
+                "labelType": "vibrant"
             }
         },
         "disabled": false
