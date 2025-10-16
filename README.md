@@ -2,7 +2,7 @@ Community tools for sfl.world
 
 Anyone can create or edit any tool, and I can provide you with an API to get any farm information, like in the skill tree tool
 
-# skills
+# Skill Trainer
 Skill tree calculator (AI generated)
 ### TODO
 + Add a sibling page skills_compare that accepts select1 and select2 query params and presents a skills comparison (show me the added/removed of 1 vs 2)
@@ -10,7 +10,7 @@ Skill tree calculator (AI generated)
 
 https://sfl.world/tools/skills/
 
-# trade
+# Resource Price History
 Trading View for resources (AI generated)
 #### TODO
 + Highlighting on the chart: Week transitions, season changes, chapter updates, and important events like FLOWER token withdrawals (I'll build an API for this feature)
@@ -21,11 +21,17 @@ Trading View for resources (AI generated)
 
 https://sfl.world/tools/trade/
 
-# docs
-SFL Community Docs (AI generated)
-#### TODO
-+ Structure
-+ Content
-+ Translate
+# Community Wiki
+Community Docs Deprecated
 
-https://sfl.world/tools/doc/
+From time to time, we'll publish backup files of assets here. This is to make sure all the hard work from our contributors doesn't get lost
+
+Key links for everyone:
+*   Main Page: https://wiki.sfl.world/
+    (red links are pages waiting to be created!)
+*   Recent Changes: https://wiki.sfl.world/en/recent-changes
+*   FAQ: https://wiki.sfl.world/en/faq
+
+Want to help? For contributors:
+*   How to register & get editing rights: https://wiki.sfl.world/en/content-creators
+
