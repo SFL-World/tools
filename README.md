@@ -29,9 +29,9 @@ From time to time, we'll publish backup files of assets here. This is to make su
 Key links for everyone:
 *   Main Page: https://wiki.sfl.world/
     (red links are pages waiting to be created!)
-*   Recent Changes: https://wiki.sfl.world/en/recent-changes
 *   FAQ: https://wiki.sfl.world/en/faq
 
 Want to help? For contributors:
 *   How to register & get editing rights: https://wiki.sfl.world/en/content-creators
+*   Recent Changes: https://wiki.sfl.world/en/recent-changes
 

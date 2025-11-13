@@ -24,7 +24,7 @@
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center p-1">
             <div class="mb-2 mb-md-0">
                 <span class="fw-bold">
-                    <a href="https://sfl.world/" class="link-primary">SFL.World</a>  / Resource Price History <small>v1.1</small>
+                    <a href="https://sfl.world/" class="link-primary">SFL.World</a>  / Resource Price History <small>v1.2</small>
                 </span>
             </div>
         </div>
@@ -32,17 +32,17 @@
 
     <div id="errorMessage" class="error-message alert alert-danger"></div>
     <div class="row mb-3">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="resourceSelect" class="form-label">Select Resource</label>
             <select id="resourceSelect" class="form-select">
                 <!-- Dynamically populated -->
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="dateRange" class="form-label">Select Date Range</label>
             <input type="text" id="dateRange" class="form-control" placeholder="Select date range (yyyy-mm-dd)">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label class="form-label">Chart Type</label>
             <div>
                 <div class="btn-group" role="group" id="chartTypeToggle">
@@ -53,6 +53,14 @@
                         <i class="bi bi-bar-chart-steps"></i> Candlestick
                     </button>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="exportPngBtn" class="form-label">Export</label>
+            <div>
+                <button id="exportPngBtn" class="btn btn-outline-secondary">
+                    <i class="bi bi-download"></i> Download PNG
+                </button>
             </div>
         </div>
     </div>
@@ -78,7 +86,7 @@
 <!-- Lightweight Charts (version 4.1.6) -->
 <script src="https://unpkg.com/lightweight-charts@4.1.6/dist/lightweight-charts.standalone.production.js"></script>
 <!-- Custom JavaScript -->
-<script src="script.js?2025090804"></script>
+<script src="script.js?202511130001"></script>
 
 <div class="theme-toggle" id="themeToggle">
     <i class="bi" id="themeIcon"></i>
