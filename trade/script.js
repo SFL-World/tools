@@ -399,6 +399,33 @@ function loadChartData(url, from = null, to = null) {
         .catch(err => showError('Error loading CSV: ' + err.message));
 }
 
+/* ----------------------- PNG Export -------------------------- */
+function exportToPng() {
+    // LightweightCharts provides a hidden canvas – we render the chart there
+    chart.resize(chartContainer.clientWidth, 600);
+    chart.timeScale().fitContent();
+
+    // Force a redraw
+    setTimeout(() => {
+        const canvas = chartContainer.querySelector('canvas');
+        if (!canvas) {
+            showError('Canvas not found for export.');
+            return;
+        }
+
+        // Create a downloadable link
+        canvas.toBlob(blob => {
+            const name = resourceMap[currentUrl] || 'chart';
+            const link = document.createElement('a');
+            const timestamp = new Date().toISOString().replace(/[-:.]/g, '').slice(0, -4)
+            link.download = `${timestamp}-${name.replace(/[^a-z0-9]/gi, '_')}.png`;
+            link.href = URL.createObjectURL(blob);
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }, 'image/png');
+    }, 100);
+}
+
 /* Attach export button */
 if (exportBtn) exportBtn.addEventListener('click', exportToPng);
 
@@ -410,16 +437,6 @@ document.querySelectorAll('#chartTypeToggle .btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.chartType === currentChartType);
 });
 
-/* --------------------------- Theme toggle (Bootstrap) -------------- */
-$('#themeToggle').on('click', () => {
-    const cur = document.documentElement.getAttribute('data-bs-theme');
-    const nxt = cur === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-bs-theme', nxt);
-    localStorage.setItem('theme', nxt);
-    $('#themeIcon')
-        .removeClass('bi-moon bi-brightness-high')
-        .addClass(nxt === 'dark' ? 'bi-brightness-high' : 'bi-moon');
-});
 
 /* --------------------------- Page ready --------------------------- */
 $(document).ready(() => {
@@ -428,4 +445,15 @@ $(document).ready(() => {
     $('#themeIcon')
         .removeClass('bi-moon bi-brightness-high')
         .addClass(saved === 'dark' ? 'bi-brightness-high' : 'bi-moon');
+
+    /* --------------------------- Theme toggle (Bootstrap) -------------- */
+    $('#themeToggle').on('click', () => {
+        const cur = document.documentElement.getAttribute('data-bs-theme');
+        const nxt = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-bs-theme', nxt);
+        localStorage.setItem('theme', nxt);
+        $('#themeIcon')
+            .removeClass('bi-moon bi-brightness-high')
+            .addClass(nxt === 'dark' ? 'bi-brightness-high' : 'bi-moon');
+    });
 });
