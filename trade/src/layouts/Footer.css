@@ -1,0 +1,10 @@
+ .app-footer {
+  border-top: 1px solid var(--mantine-color-default-border);
+  min-height: 52px;
+}
+
+@media (max-width: 47.99em) {
+  .app-footer {
+    display: none;
+  }
+}

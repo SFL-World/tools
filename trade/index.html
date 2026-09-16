@@ -1,106 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="https://sfl.world/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Price History Visualization</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Bootstrap Datepicker CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="/tools/trade/styles.css?2025090801" rel="stylesheet">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light'
-        document.documentElement.setAttribute('data-bs-theme', savedTheme)
-    </script>
-</head>
-<body>
-<div class="container">
-
-    <div class="mb-3">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center p-1">
-            <div class="mb-2 mb-md-0">
-                <span class="fw-bold">
-                    <a href="https://sfl.world/" class="link-primary">SFL.World</a>  / Resource Price History <small>v1.2</small>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div id="errorMessage" class="error-message alert alert-danger"></div>
-    <div class="row mb-3">
-        <div class="col-md-3">
-            <label for="resourceSelect" class="form-label">Select Resource</label>
-            <select id="resourceSelect" class="form-select">
-                <!-- Dynamically populated -->
-            </select>
-        </div>
-        <div class="col-md-3">
-            <label for="dateRange" class="form-label">Select Date Range</label>
-            <input type="text" id="dateRange" class="form-control" placeholder="Select date range (yyyy-mm-dd)">
-        </div>
-        <div class="col-md-3">
-            <label class="form-label">Chart Type</label>
-            <div>
-                <div class="btn-group" role="group" id="chartTypeToggle">
-                    <button type="button" class="btn btn-outline-primary active" data-chart-type="line">
-                        <i class="bi bi-graph-up"></i> Line
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" data-chart-type="candlestick">
-                        <i class="bi bi-bar-chart-steps"></i> Candlestick
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <label for="exportPngBtn" class="form-label">Export</label>
-            <div>
-                <button id="exportPngBtn" class="btn btn-outline-secondary">
-                    <i class="bi bi-download"></i> Download PNG
-                </button>
-            </div>
-        </div>
-    </div>
-    <div id="chart"></div>
-    <div class="stats">
-        <h5>Statistics</h5>
-        <table>
-            <tr><td>Maximum Price</td><td class="text-right"><span id="maxPrice"></span></td></tr>
-            <tr><td>Minimum Price</td><td class="text-right"><span id="minPrice"></span></td></tr>
-            <tr><td>Average Price</td><td class="text-right"><span id="avgPrice"></span></td></tr>
-            <tr><td>Price Range</td><td class="text-right"><span id="priceRange"></span></td></tr>
-            <tr><td>Data Points</td><td class="text-right"><span id="dataPoints"></span></td></tr>
-        </table>
-    </div>
-</div>
-
-<!-- jQuery (required for Bootstrap Datepicker) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Bootstrap Datepicker JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<!-- Lightweight Charts (version 4.1.6) -->
-<script src="https://unpkg.com/lightweight-charts@4.1.6/dist/lightweight-charts.standalone.production.js"></script>
-<!-- Custom JavaScript -->
-<script src="/tools/trade/script.js?202604120001"></script>
-
-<div class="theme-toggle" id="themeToggle">
-    <i class="bi" id="themeIcon"></i>
-</div>
-
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E026X3SKE2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-E026X3SKE2');
-
-</script>
-
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

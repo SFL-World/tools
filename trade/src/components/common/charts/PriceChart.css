@@ -1,0 +1,17 @@
+@media (max-width: 48em) {
+  .price-chart {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    margin-inline: -16px;
+    padding-inline: 0;
+    width: calc(100% + 32px);
+  }
+}
+
+@media (min-width: 48.01em) and (max-width: 56.875em) {
+  .price-chart {
+    padding-inline: 0 !important;
+    width: calc(100% + 13px);
+  }
+}

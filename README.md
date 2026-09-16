@@ -11,13 +11,13 @@ Skill tree calculator (AI generated)
 https://sfl.world/tools/skills/
 
 # Resource Price History
-Trading View for resources (AI generated)
+ Created by alisenaqubadi (nameless00)
 #### TODO
 + Highlighting on the chart: Week transitions, season changes, chapter updates, and important events like FLOWER token withdrawals (I'll build an API for this feature)
-+ Comparing price changes between two resource pairs, like Wood/FLOWER and Rock/FLOWER (601.csv and 602.csv)
-+ Adding multiple resources to the chart
-+ Adding resource USD values to the chart
-+ Adding indicators like a simple moving average (SMA)
+* Comparing price changes between two resource pairs, like Wood/FLOWER and Rock/FLOWER (601.csv and 602.csv)
+* Adding multiple resources to the chart
+* Adding resource USD values to the chart
+* Adding indicators like a simple moving average (SMA)
 
 https://sfl.world/tools/trade/
 

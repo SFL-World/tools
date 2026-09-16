@@ -1,0 +1,206 @@
+[
+  {
+    "name": "crimstone",
+    "path": "https://sfl.world/img/source/crimstone.png"
+  },
+  {
+    "name": "Egg",
+    "path": "https://sfl.world/img/delivery/Egg.png"
+  },
+  {
+    "name": "Feather",
+    "path": "https://sfl.world/img/delivery/Feather.png"
+  },
+  {
+    "name": "Milk",
+    "path": "https://sfl.world/img/delivery/Milk.png"
+  },
+  {
+    "name": "Leather",
+    "path": "https://sfl.world/img/delivery/Leather.png"
+  },
+  {
+    "name": "Wool",
+    "path": "https://sfl.world/img/delivery/Wool.png"
+  },
+  {
+    "name": "Merino Wool",
+    "path": "https://sfl.world/img/delivery/Merino Wool.png"
+  },
+  {
+    "name": "Wood",
+    "path": "https://sfl.world/img/source/Wood.png"
+  },
+  {
+    "name": "Stone",
+    "path": "https://sfl.world/img/source/Stone.png"
+  },
+  {
+    "name": "Iron",
+    "path": "https://sfl.world/img/source/Iron.png"
+  },
+  {
+    "name": "Gold",
+    "path": "https://sfl.world/img/source/Gold.png"
+  },
+  {
+    "name": "Crimstone",
+    "path": "https://sfl.world/img/source/Crimstone.png"
+  },
+  {
+    "name": "Obsidian",
+    "path": "https://sfl.world/img/source/Obsidian.png"
+  },
+  {
+    "name": "Salt",
+    "path": "https://sfl.world/img/source/Salt.png"
+  },
+  {
+    "name": "Tomato",
+    "path": "https://sfl.world/img/source/Tomato.png"
+  },
+  {
+    "name": "Lemon",
+    "path": "https://sfl.world/img/source/Lemon.png"
+  },
+  {
+    "name": "Blueberry",
+    "path": "https://sfl.world/img/source/Blueberry.png"
+  },
+  {
+    "name": "Orange",
+    "path": "https://sfl.world/img/source/Orange.png"
+  },
+  {
+    "name": "Apple",
+    "path": "https://sfl.world/img/source/Apple.png"
+  },
+  {
+    "name": "Banana",
+    "path": "https://sfl.world/img/source/Banana.png"
+  },
+  {
+    "name": "Celestine",
+    "path": "https://sfl.world/img/source/Celestine.png"
+  },
+  {
+    "name": "Lunara",
+    "path": "https://sfl.world/img/source/Lunara.png"
+  },
+  {
+    "name": "Duskberry",
+    "path": "https://sfl.world/img/source/Duskberry.png"
+  },
+  {
+    "name": "Sunflower",
+    "path": "https://sfl.world/img/source/Sunflower.png"
+  },
+  {
+    "name": "Potato",
+    "path": "https://sfl.world/img/source/Potato.png"
+  },
+  {
+    "name": "Rhubarb",
+    "path": "https://sfl.world/img/source/Rhubarb.png"
+  },
+  {
+    "name": "Pumpkin",
+    "path": "https://sfl.world/img/source/Pumpkin.png"
+  },
+  {
+    "name": "Zucchini",
+    "path": "https://sfl.world/img/source/Zucchini.png"
+  },
+  {
+    "name": "Carrot",
+    "path": "https://sfl.world/img/source/Carrot.png"
+  },
+  {
+    "name": "Yam",
+    "path": "https://sfl.world/img/source/Yam.png"
+  },
+  {
+    "name": "Cabbage",
+    "path": "https://sfl.world/img/source/Cabbage.png"
+  },
+  {
+    "name": "Broccoli",
+    "path": "https://sfl.world/img/source/Broccoli.png"
+  },
+  {
+    "name": "Soybean",
+    "path": "https://sfl.world/img/source/Soybean.png"
+  },
+  {
+    "name": "Beetroot",
+    "path": "https://sfl.world/img/source/Beetroot.png"
+  },
+  {
+    "name": "Pepper",
+    "path": "https://sfl.world/img/source/Pepper.png"
+  },
+  {
+    "name": "Cauliflower",
+    "path": "https://sfl.world/img/source/Cauliflower.png"
+  },
+  {
+    "name": "Parsnip",
+    "path": "https://sfl.world/img/source/Parsnip.png"
+  },
+  {
+    "name": "Saltwort",
+    "path": "https://sfl.world/img/source/Saltwort.png"
+  },
+  {
+    "name": "Eggplant",
+    "path": "https://sfl.world/img/source/Eggplant.png"
+  },
+  {
+    "name": "Corn",
+    "path": "https://sfl.world/img/source/Corn.png"
+  },
+  {
+    "name": "Onion",
+    "path": "https://sfl.world/img/source/Onion.png"
+  },
+  {
+    "name": "Radish",
+    "path": "https://sfl.world/img/source/Radish.png"
+  },
+  {
+    "name": "Wheat",
+    "path": "https://sfl.world/img/source/Wheat.png"
+  },
+  {
+    "name": "Turnip",
+    "path": "https://sfl.world/img/source/Turnip.png"
+  },
+  {
+    "name": "Kale",
+    "path": "https://sfl.world/img/source/Kale.png"
+  },
+  {
+    "name": "Artichoke",
+    "path": "https://sfl.world/img/source/Artichoke.png"
+  },
+  {
+    "name": "Barley",
+    "path": "https://sfl.world/img/source/Barley.png"
+  },
+  {
+    "name": "Grape",
+    "path": "https://sfl.world/img/source/Grape.png"
+  },
+  {
+    "name": "Rice",
+    "path": "https://sfl.world/img/source/Rice.png"
+  },
+  {
+    "name": "Olive",
+    "path": "https://sfl.world/img/source/Olive.png"
+  },
+  {
+    "name": "Honey",
+    "path": "https://sfl.world/img/delivery/Beehive.png"
+  }
+]
